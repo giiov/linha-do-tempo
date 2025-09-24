@@ -62,12 +62,16 @@
 <body>
     <div class="trajetoria-container">
         <h2>Trajetoria AMS</h2>
- 
-        <input type="range" min="1" max="5" value="1" id="anoSlider">
-        <div id="descricaoAno" class="descricao">
-        <h3>1º Ano - Na ETEC</h3>
-        <p>Aprendizado: Redes, HTML, Introdução à Informática</p>
-        <div class="icone"><i class="fas fa-laptop"></i></div>
+
+        <!--posição relativa para que a descrição absoluta seja posicionada em  relação a ele-->
+        <div class="slide-wrapper" style="position: relative; width: 100%;">
+          <input type="range" min="1" max="5" value="1" id="anoSlider">
+
+          <div id="descricaoAno" class="descricao">
+            <h3>1º Ano - Na ETEC</h3>
+            <p>Aprendizado: Redes, HTML, Introdução à Informática</p>
+            <div class="icone"><i class="fas fa-laptop"></i></div>
+          </div>
         </div>
     </div>
  
@@ -84,8 +88,9 @@
     5: { titulo: "5º Ano - Na FATEC", conteudo: "Projetos Profissionais, Estágio, Preparação para o Mercado", icone: "<i class='fas fa-graduation-cap'></i>" }
   };
 
-        //o que vai fazer o slider mudar
-        slider.addEventListener("input", () => {
+
+        //função para atualzar o conteúdo de acor com a posição
+        function atualizarDescricao() {
             const ano = slider.value;//qual slider é (1-5)
 
             //vai atualizar descrição
@@ -94,8 +99,23 @@
             <p>${anos[ano].conteudo}</p>
             <div class="icone">${anos[ano].icone}</div>
             `;
-            });
-            
+
+            //vai calcular a posição horizontal da descrição sobre a bolinha do slider
+            const sliderWidth = slider.offsetWidth; //largura
+            const max = slider.max; //valor máximo
+            const min = slider.min; //valor mínimo
+            const percent = (ano - min) / (max - min); //porcentagem da posição do slider (0 a 1)
+
+            //para centralizar a descrição sobre a bolinha
+            const offset = descricao.offsetWidth / 2;
+            descricao.style.left = `calc(${percent * 100}% - ${offset}px)`;
+        }
+
+        //para atualizar a descrição quando o slider mudar
+        slider.addEventListener("input", atualizarDescricao);
+
+        //chamando função
+        atualizarDescricao();     
     </script>
 </body>
 </html>
