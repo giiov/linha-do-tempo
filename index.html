@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linha do Tempo AMS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
  
     <style>
     /* Container principal */
@@ -16,10 +19,11 @@
     }
  
     /* Título da seção */
-    h2 {
+    .Montserrat {
+      font-size: 30px;
       color: #800115;
-      margin-bottom: 30px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin-bottom: 50px;
+      font-family: 'Montserrat', sans-serif;
     }
  
     /* Slider estilo barra */
@@ -27,13 +31,13 @@
       width: 100%;
       margin: 20px 0;
       accent-color: #800115;
-      border: 1px, solid #fff;
+      border: 1px solid #fff;
     }
 
     /* Box que mostra a descrição do ano */
 .descricao {
  background-color: #ffffff; /* Fundo branco */
-  padding: 2px; /* Aumenta o espaçamento interno */
+  padding: 24px; /* Aumenta o espaçamento interno */
   border-radius: 15px; /* Cantos bem arredondados */
   box-shadow: 0 8px 20px #ffe3e7; /* Sombra mais destacada */
   border: 1px solid #ffffff; /* Adiciona uma borda fina para definição */
@@ -68,7 +72,7 @@
 </head>
 <body>
     <div class="trajetoria-container">
-        <h2>TRAJETORIA AMS</h2>
+        <h2 class="Montserrat">TRAJETORIA AMS</h2>
 
         <!--posição relativa para que a descrição absoluta seja posicionada em  relação a ele-->
         <div class="slide-wrapper" style="position: relative; width: 100%;">
